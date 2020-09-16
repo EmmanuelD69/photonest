@@ -1,0 +1,632 @@
+/* font-family: 'Abril Fatface', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+/* GLOBAL WEBSITE SETTING */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* pages global settings */
+body {
+	position: relative;
+	background: #17181a;
+	font-family: 'Montserrat', sans-serif;
+	/* to avoid scroll bar to appear when the divs that cover the contents will move to the side */
+	overflow-x: hidden;
+}
+
+/* to position the sections of our main content, one other each others */
+main {
+	position: absolute;
+}
+
+/* logo settings */
+#logo {
+	color: white;
+	font-family: 'Abril Fatface', cursive;
+}
+
+/* navbar settings */
+.nav-header {
+	min-height: 10vh;
+	font-size: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: white;
+	width: 80%;
+	margin: auto;
+	padding: 2rem 0rem;
+	z-index: 2;
+	position: relative;
+	/* fadin effect on the navbar when loading page */
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein 2s; /* Firefox < 16 */
+	-ms-animation: fadein 2s; /* Internet Explorer */
+	-o-animation: fadein 2s; /* Opera < 12.1 */
+	animation: fadein 4s;
+}
+
+/* burger lines visual settings */
+.line1,
+.line2 {
+	width: 3rem;
+	height: 0.2rem;
+	margin: 0.4rem;
+	background: white;
+	pointer-events: none;
+}
+
+/* section containers settings */
+.slide {
+	min-height: 100vh;
+	margin: 0 auto;
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+	background: #17181a;
+}
+
+/* text containers settings */
+.hero-description {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	flex-basis: 25rem;
+	padding-left: 5rem;
+	position: relative;
+}
+
+/* image container settings */
+.hero-img {
+	position: relative;
+	flex: 1;
+	flex-basis: 25rem;
+	/* to avoid img to show bigger when we enlarge it */
+	overflow: hidden;
+}
+
+/* image settings */
+.hero-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* text between spans settings */
+.mountain-span {
+	color: rgb(86, 124, 228);
+}
+
+.hike-span {
+	color: rgb(167, 110, 231);
+}
+
+.fashion-span {
+	color: rgb(255, 139, 93);
+}
+
+/* text main titles settings */
+.hero-description h2 {
+	font-family: 'Abril Fatface';
+	font-size: 5rem;
+}
+
+/* text paragraphes settings */
+.hero-description p {
+	padding: 3rem 0rem;
+	font-size: 1.5rem;
+	color: rgb(223, 223, 223);
+}
+
+/* turning link balise into a button */
+.explore {
+	padding: 1rem 2rem;
+	background: none;
+	border: none;
+	color: white;
+	border: 1px solid white;
+	font-size: 1rem;
+	text-decoration: none;
+	align-self: flex-start;
+	cursor: pointer;
+}
+
+/* burger navbar settings */
+.nav-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgb(255, 139, 93);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	z-index: 1;
+	opacity: 1;
+	clip-path: circle(50px at 100% -10%);
+	-webkit-clip-path: circle(50px at 100% -10%);
+}
+
+/* setting cursor to show pointer when hovering the burger */
+.burger {
+	cursor: pointer;
+}
+
+/* social networks links settings */
+.nav-links {
+	font-size: 3rem;
+	flex-basis: 30rem;
+}
+
+.nav-links h3 {
+	padding: 3rem 0rem;
+}
+
+/* contact container settings */
+.contact {
+	flex-basis: 30rem;
+}
+
+/* contact title settings */
+.contact h2 {
+	font-size: 3rem;
+	padding: 2rem 0rem;
+}
+
+/* contact paragraphe settings */
+.contact p {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+
+/* divs covering sections settings */
+.reveal-img,
+.reveal-text {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #17181a;
+	top: 0;
+	left: 0;
+}
+
+/* div cursor settings, it will move around with the cursor when moving the mouse - see details on app.js */
+.cursor {
+	width: 3rem;
+	height: 3rem;
+	border: 1px solid white;
+	border-radius: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	transition: all 0.5s ease-in-out;
+	transition-property: background, transform;
+	transform-origin: 75% 75%;
+}
+
+/* cursor animations on hover effect */
+.cursor.nav-active {
+	transition: all 0.2s ease-in-out;
+	background: rgb(255, 139, 93);
+	transform: scale(3);
+}
+
+.cursor.explore-active {
+	background: white;
+	transform: scale(3);
+}
+
+.cursor-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-size: 0.5rem;
+	transform: translate(-50%, -50%);
+}
+
+/* setting the divs that will cover the sections contents */
+.title {
+	position: relative;
+	overflow: hidden;
+}
+
+/* setting the cover divs size and position */
+.title-swipe {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	mix-blend-mode: darken;
+	transform: translateY(100%);
+}
+
+/* setting the cover divs background colors so we can give with Js a smooth effect of filling titles with color */
+.t-swipe1 {
+	background: rgb(86, 124, 228);
+}
+.t-swipe2 {
+	background: rgb(167, 110, 231);
+}
+.t-swipe3 {
+	background: rgb(255, 139, 93);
+}
+
+/* to be able to click on button when pin spacer cover it */
+.scrollmagic-pin-spacer {
+	position: static !important;
+}
+
+/* class hide is created in our Js code to avoid the scroll bar from appearing on the window side when we click on our burger */
+body.hide {
+	overflow: hidden;
+}
+
+/* PAGES CSS */
+/* pages sections global settings */
+.transylvania1,
+.transylvania2,
+.transylvania3,
+.trekking1,
+.trekking2,
+.trekking3,
+.fashion1,
+.fashion2,
+.fashion3 {
+	min-height: 90vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	margin: auto;
+	color: white;
+	margin-top: 5rem;
+	flex-wrap: wrap;
+	position: relative;
+}
+
+/* pages-img container size */
+.transylvania-img,
+.trekking-img,
+.fashion-img {
+	height: 70vh;
+	flex-basis: 30rem;
+}
+
+/* pages images settings */
+.transylvania-img img,
+.trekking-img img,
+.fashion-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* pages title settings */
+
+.transylvania-text,
+.trekking-text,
+.fashion-text {
+	flex: 1;
+	position: relative;
+	flex-basis: 25rem;
+	font-size: 6rem;
+	padding: 5rem 0rem;
+}
+
+/* pages titles */
+.transylvania1 h1,
+.trekking1 h1,
+.fashion1 h1 {
+	color: rgb(255, 139, 93);
+}
+.transylvania2 h1,
+.trekking2 h1,
+.fashion2 h1 {
+	color: rgb(86, 124, 228);
+}
+.transylvania3 h1,
+.trekking3 h1,
+.fashion3 h1 {
+	color: rgb(167, 110, 231);
+}
+
+/* pages paragraphes */
+.transylvania-text p,
+.trekking-text p,
+.fashion-text p {
+	font-size: 2rem;
+	padding: 2rem 2rem 0rem 0rem;
+	margin-bottom: 10rem;
+}
+
+/* pages sections number */
+.transylvania-nr,
+.trekking-nr,
+.fashion-nr {
+	font-size: 15rem;
+	position: absolute;
+	left: 40%;
+	bottom: 5%;
+	color: white;
+	opacity: 0.2;
+}
+
+/* transition page animation */
+.swipe {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	transform: translateX(-100%);
+	display: flex;
+	justify-items: center;
+	align-items: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* for the text written into the 1st swipe div */
+/* .swipe span,
+.swipetransylvania span,
+.swipetrekking span,
+.swipefashion span {
+  text-align: center;
+  font-size: 10rem;
+  font-family: "Abril Fatface", cursive;
+} */
+
+/* background-color main swipe (not implemented yet)*/
+/* .swipe0transylvania,
+.swipe0trekking,
+.swipe0fashion {
+  z-index: 6;
+} */
+.swipe0transylvania {
+	background-color: rgb(86, 124, 228);
+	z-index: 6;
+}
+.swipe0trekking {
+	background-color: rgb(167, 110, 231);
+	z-index: 5;
+}
+.swipe0fashion {
+	background-color: rgb(255, 139, 93);
+	z-index: 4;
+}
+
+/* background-img swipe1 (not implemented yet)*/
+.swipe1transylvania,
+.swipe1trekking,
+.swipe1fashion {
+	z-index: 5;
+}
+.swipe1transylvania {
+	background-image: url(../img/transylvania1.jpg);
+}
+.swipe1trekking {
+	background-image: url(../img/tibet1.jpg);
+}
+.swipe1fashion {
+	background-image: url(../img/fashion-img1.png);
+}
+
+/* background-img swipe2 (not implemented yet)*/
+.swipe2transylvania,
+.swipe2trekking,
+.swipe2fashion {
+	z-index: 4;
+}
+.swipe2transylvania {
+	background-image: url(../img/transylvania2.jpg);
+}
+.swipe2trekking {
+	background-image: url(../img/tibet2.jpg);
+}
+.swipe2fashion {
+	background-image: url(../img/fashion-img2.png);
+}
+
+/* background-img swipe3 (not implemented yet)*/
+.swipe3transylvania,
+.swipe3trekking,
+.swipe3fashion {
+	z-index: 7;
+}
+.swipe3transylvania {
+	background-image: url(../img/transylvania3.jpg);
+}
+.swipe3trekking {
+	background-image: url(../img/tibet3.jpg);
+}
+.swipe3fashion {
+	background-image: url(../img/fashion-img3.png);
+}
+
+/* ANIMATION FADIN & BROWSERS COMPATIBILITY*/
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 1500px) {
+	.hero-img {
+		height: 50vh;
+	}
+	.fashion-text h1 {
+		font-size: 2rem;
+		padding: 1rem 0rem;
+	}
+	.fashion-text p {
+		font-size: 1.2rem;
+	}
+	.fashion-img img {
+		height: 50vh;
+		object-position: top;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	main {
+		width: 100%;
+		margin: 0;
+	}
+	.slide {
+		display: block;
+		width: 90%;
+		text-align: center;
+	}
+	.hero-description {
+		padding: 0;
+	}
+	.hero-img {
+		padding-top: 0rem;
+		height: auto;
+	}
+
+	.hero-img img {
+		width: 100%;
+		height: auto;
+	}
+
+	.hero-description h2 {
+		font-size: 1.2rem;
+		padding: 1rem 0rem;
+	}
+	.hero-description p {
+		padding: 0rem 0rem;
+		font-size: 1rem;
+		line-height: 1.5rem;
+		text-align: center;
+	}
+	.explore {
+		width: 40%;
+		margin: auto;
+	}
+
+	/* other pages responsive */
+	.fashion-slide,
+	.transylvania-slide,
+	.trekking-slide {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	.fashion-img img,
+	.transylvania-img img,
+	.trekking-img img {
+		width: 50%;
+		height: auto;
+	}
+
+	.scrollmagic-pin-spacer {
+		margin: 0rem;
+	}
+
+	.fashion-text,
+	.transylvania-text,
+	.trekking-text {
+		margin-bottom: 2rem;
+		padding: 0;
+		font-size: 1.2rem;
+	}
+
+	.fashion-text p,
+	.transylvania-text p,
+	.trekking-text p {
+		margin: 0rem 1rem;
+		padding: 0;
+		font-size: 1.2rem;
+	}
+	.fashion-text h1,
+	.transylvania-text h1,
+	.trekking-text h1 {
+		font-size: 2rem;
+		margin: 0rem;
+	}
+	.fashion-nr,
+	.transylvania-nr,
+	.trekking-nr {
+		font-size: 8rem;
+	}
+	.nav-bar {
+		width: 55%;
+		flex-direction: column-reverse;
+		flex-wrap: wrap;
+	}
+	ul.nav-links {
+		width: 100%;
+		text-align: center;
+	}
+	.nav-links h3 {
+		font-size: 2.5rem;
+		padding: 1rem 0rem;
+	}
+
+	.contact h2 {
+		font-size: 2.5rem;
+		text-align: center;
+		padding: 3rem;
+	}
+	.contact p {
+		font-size: 1.5rem;
+		padding: 0rem 1rem;
+		text-align: center;
+	}
+}
