@@ -12,27 +12,27 @@ form.addEventListener('submit', (e) => {
 	searchPhotos(searchValue);
 });
 
-/* fonction updateInput */
+/* fonction permettant d'enregister la valeur indiquée dans le champ de recherche */
 function updateInput(e) {
 	searchValue = e.target.value;
 }
 
 /* Fonction asyncrhone pour récupérer les données du site Pexels au format json */
-async function curatedPhotos() {
-	const dataFetch = await fetch(
-		'https://api.pexels.com/v1/curated?per_page=15',
-		{
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				Authorization: auth,
-			},
-		}
-	);
+async function fetchApi(url) {
+	const dataFetch = await fetch(url, {
+		method: 'GET',
+		headers: {
+			Accept: 'application/json',
+			Authorization: auth,
+		},
+	});
 	/* conversion des données json au format javascript (objet js) */
 	const data = await dataFetch.json();
+	return data;
+}
 
-	/* intégration des photos dans la page web */
+/* Fonction permettant l'intégration des photos dans la page web */
+function generatePictures(data) {
 	data.photos.forEach((photo) => {
 		/* création d'une div pour chaque photo*/
 		const galleryImg = document.createElement('div');
@@ -46,32 +46,21 @@ async function curatedPhotos() {
 	});
 }
 
-async function searchPhotos(search) {
-	const dataFetch = await fetch(
-		`https://api.pexels.com/v1/search?query=${search}&per_page=15`,
-		{
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				Authorization: auth,
-			},
-		}
-	);
-	/* conversion des données json au format javascript (objet js) */
-	const data = await dataFetch.json();
+async function curatedPhotos() {
+	const data = await fetchApi('https://api.pexels.com/v1/curated?per_page=15');
+	generatePictures(data);
+}
 
-	/* intégration des photos dans la page web */
-	data.photos.forEach((photo) => {
-		/* création d'une div pour chaque photo*/
-		const galleryImg = document.createElement('div');
-		/* ajout d'une classe pour pouvoir paramétrer le Css des div */
-		galleryImg.classList.add('gallery-img');
-		/* ajout de la source de la photo et son auteur  */
-		galleryImg.innerHTML = `<img src="${photo.src.large}"></img> 
-        <p>${photo.photographer}</p>`;
-		/* ajout de la div dans l'élément parent gallery */
-		gallery.appendChild(galleryImg);
-	});
+async function searchPhotos(search) {
+	const data = await fetchApi(
+		`https://api.pexels.com/v1/search?query=${search}&per_page=15`
+	);
+	generatePictures(data);
+}
+
+function clear() {
+	gallery.innerHTML = '';
+	searchInput.value = '';
 }
 
 curatedPhotos();
