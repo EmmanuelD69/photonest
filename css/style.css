@@ -60,3 +60,47 @@ header h2 {
 	color: whitesmoke;
 	cursor: pointer;
 }
+
+.gallery-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: rgb(211, 65, 65);
+	padding: 0.5rem 0rem;
+}
+
+.gallery-info a {
+	color: rgb(211, 65, 65);
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	padding: 2rem 0rem;
+	width: 80%;
+	margin: auto;
+	row-gap: 5rem;
+	column-gap: 3rem;
+}
+
+.gallery-img img {
+	width: 100%;
+	height: 95%;
+	object-fit: cover;
+}
+
+.nav-button {
+	min-height: 30vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.more {
+	padding: 1rem 3rem;
+	background: rgb(211, 65, 65);
+	color: whitesmoke;
+	border: none;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
