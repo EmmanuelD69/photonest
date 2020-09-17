@@ -41,8 +41,13 @@ function generatePictures(data) {
 		/* ajout d'une classe pour pouvoir paramétrer le Css des div */
 		galleryImg.classList.add('gallery-img');
 		/* ajout de la source de la photo et son auteur  */
-		galleryImg.innerHTML = `<img src="${photo.src.large}"></img> 
-        <p>${photo.photographer}</p>`;
+		galleryImg.innerHTML = `
+		<div class="gallery-info">
+		<p>${photo.photographer}</p>
+		<a href=${photo.src.original}>Affiche Original</a>
+		</div>
+		<img src="${photo.src.large}"></img>
+		`;
 		/* ajout de la div dans l'élément parent gallery */
 		gallery.appendChild(galleryImg);
 	});
