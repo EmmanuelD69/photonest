@@ -1,3 +1,5 @@
+/* INFO IMPORTANTE: CETTE API PERMET D'AFFICHER 200 IMAGES PAR HEURE, PAS PLUS!!! */
+
 /* declaration des variables */
 const auth = '563492ad6f917000010000014c3f35f70fb046efb578c7d04441b1d2';
 const gallery = document.querySelector('.gallery');
@@ -46,18 +48,22 @@ function generatePictures(data) {
 	});
 }
 
+/* Fonction asynchrone permettant de récupérer et d'afficher les dernières photos publiées sur le site Pexels */
 async function curatedPhotos() {
 	const data = await fetchApi('https://api.pexels.com/v1/curated?per_page=15');
 	generatePictures(data);
 }
 
+/* Fonction asynchrone permettant de récupérer et d'afficher les photos en rapport avec la recherche */
 async function searchPhotos(search) {
+	clear();
 	const data = await fetchApi(
 		`https://api.pexels.com/v1/search?query=${search}&per_page=15`
 	);
 	generatePictures(data);
 }
 
+/* Fonction permettant de retirer la selection en cours afin d'afficher la suivante */
 function clear() {
 	gallery.innerHTML = '';
 	searchInput.value = '';
