@@ -61,18 +61,16 @@ function generatePictures(data) {
 
 /* Fonction asynchrone permettant de récupérer et d'afficher les dernières photos publiées sur le site Pexels */
 async function curatedPhotos() {
-	const data = await fetchApi(
-		`https://api.pexels.com/v1/curated?per_page=15&page=${page}`
-	);
+	fetchLink = `https://api.pexels.com/v1/curated?per_page=15&page=1`;
+	const data = await fetchApi(fetchLink);
 	generatePictures(data);
 }
 
 /* Fonction asynchrone permettant de récupérer et d'afficher les photos en rapport avec la recherche */
 async function searchPhotos(search) {
 	clear();
-	const data = await fetchApi(
-		`https://api.pexels.com/v1/search?query=${search}&per_page=15&page=${page}`
-	);
+	fetchLink = `https://api.pexels.com/v1/search?query=${search}&per_page=15&page=1`;
+	const data = await fetchApi(fetchLink);
 	generatePictures(data);
 }
 

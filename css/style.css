@@ -11,8 +11,6 @@
 body {
 	background: #17181a;
 	font-family: 'Roboto', sans-serif;
-	/* to avoid scroll bar to appear when the divs that cover the contents will move to the side */
-	overflow-x: hidden;
 }
 
 /* removing links underlining */
