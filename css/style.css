@@ -2,103 +2,113 @@
 
 /* GLOBAL WEBSITE SETTING */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* pages global settings */
 body {
-	background: #17181a;
-	font-family: 'Roboto', sans-serif;
+  background: #17181a;
+  font-family: "Roboto", sans-serif;
 }
 
 /* removing links underlining */
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 /* header settings */
 header {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
 }
 
+/* styling the area holding the logo */
 header h2 {
-	padding: 2rem;
+  padding: 2rem;
 }
 
-/* logo settings */
+/* syling the link on the website Logo */
 #logo {
-	color: white;
-	font-size: 2.5rem;
+  color: white;
+  font-size: 2.5rem;
 }
 
+/* styling the search module */
 .search-form {
-	padding: 2rem;
-	display: flex;
+  padding: 2rem;
+  display: flex;
 }
 
+/* styling the search input area */
 .search-form input {
-	font-size: 2rem;
-	padding: 0.5rem;
-	width: 100%;
-	border: none;
-	border: 2px solid rgb(211, 65, 65);
+  font-size: 2rem;
+  padding: 0.5rem;
+  width: 100%;
+  border: none;
+  border: 2px solid rgb(211, 65, 65);
 }
 
+/* styling the search button */
 .search-form button {
-	font-size: 1rem;
-	padding: 0.5rem;
-	border: none;
-	background: rgb(211, 65, 65);
-	color: whitesmoke;
-	cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: none;
+  background: rgb(211, 65, 65);
+  color: whitesmoke;
+  cursor: pointer;
 }
 
+/* styling the area where the informations on the pictures will be displayed */
 .gallery-info {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	color: rgb(211, 65, 65);
-	padding: 0.5rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(211, 65, 65);
+  padding: 0.5rem 0rem;
 }
 
+/* styling the link leading to the original picture */
 .gallery-info a {
-	color: rgb(211, 65, 65);
+  color: rgb(211, 65, 65);
 }
 
+/* styling the pictures gallery area */
 .gallery {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-	padding: 2rem 0rem;
-	width: 80%;
-	margin: auto;
-	row-gap: 5rem;
-	column-gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  padding: 2rem 0rem;
+  width: 80%;
+  margin: auto;
+  row-gap: 5rem;
+  column-gap: 3rem;
 }
 
+/* styling the images part of the gallery */
 .gallery-img img {
-	width: 100%;
-	height: 95%;
-	object-fit: cover;
+  width: 100%;
+  height: 95%;
+  object-fit: cover;
 }
 
+/* styling the area when the button "More" is displayed */
 .nav-button {
-	min-height: 30vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* styling the button "More" */
 .more {
-	padding: 1rem 3rem;
-	background: rgb(211, 65, 65);
-	color: whitesmoke;
-	border: none;
-	font-size: 1.2rem;
-	cursor: pointer;
+  padding: 1rem 3rem;
+  background: rgb(211, 65, 65);
+  color: whitesmoke;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
