@@ -1,7 +1,8 @@
 /* INFO IMPORTANTE: CETTE API PERMET D'AFFICHER 200 IMAGES PAR HEURE, PAS PLUS!!! */
 
-/* declaration des variables */
-const auth = "563492ad6f917000010000014c3f35f70fb046efb578c7d04441b1d2";
+// /* declaration des variables */
+const auth = process.env.API_KEY;
+console.log(auth);
 const gallery = document.querySelector(".gallery");
 const searchInput = document.querySelector(".search-input");
 const form = document.querySelector(".search-form");
