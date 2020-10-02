@@ -1,8 +1,8 @@
 /* INFO IMPORTANTE: CETTE API PERMET D'AFFICHER 200 IMAGES PAR HEURE, PAS PLUS!!! */
-
+require("dotenv").config();
+console.log(process.env.API_KEY);
 // /* declaration des variables */
 const auth = process.env.API_KEY;
-console.log(auth);
 const gallery = document.querySelector(".gallery");
 const searchInput = document.querySelector(".search-input");
 const form = document.querySelector(".search-form");
